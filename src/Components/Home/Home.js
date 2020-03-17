@@ -10,31 +10,41 @@ class Home extends Component {
     state = {
         userName: 'Prasanna MRG',
         recipeNames: [],
-        namesRecieved: true
+        namesRecieved: true,
+        recipeImage: [],
     }
     componentDidMount() {
         const user = Firebase.auth().currentUser;
 
         //Checking whether the user uploaded recipes or not
         const dbRef = Firebase.database().ref(`Recipes`);
+        const storageRef = Firebase.storage();
         let allRecpNames = [];
+        let imgValues = [];
         dbRef.orderByKey().equalTo(user.uid).on("value", (snap) => {
             snap.forEach(childSnap => {
                 childSnap.forEach(innerChildSnap => {
                     Object.keys(innerChildSnap.val().recipeName).map(el => {
-                        allRecpNames.push(innerChildSnap.val().recipeName[el]);
+                        let names = innerChildSnap.val().recipeName[el];
+                        let childStorageRef = storageRef.ref(`RecipeImage/${user.uid}/${names}`);
+                        childStorageRef.getDownloadURL().then(url => {
+                            imgValues.push({
+                                [names]: url
+                            })
+                            this.setState({recipeImage: imgValues})
+                        })
+                        allRecpNames.push(names);
                         this.setState({namesRecieved: false})
                     })
                 })
             })
-        })
+        });
 
         this.setState({recipeNames: allRecpNames});
 
         const childRef = Firebase.database().ref(`Recipes/${user.uid}`);
         childRef.on('value', (snap) => {
             if(snap.exists()){
-                console.log('Allowed')
                 this.props.didRecipesUploaded();
             }else{
                 this.setState({namesRecieved: false})
@@ -74,10 +84,15 @@ class Home extends Component {
                             </div>
                             <div className="col-md-9 list-short-recipes my-auto">
                                 {
-                                    this.state.recipeNames.map((el, index) => (
-                                        <Link to="/myrecipe" key={index}><button className="btn-home-recp-list">{el}</button></Link>
-                                    ))
+                                    console.log(this.state.recipeImage)
                                 }
+                                { 
+                                    this.state.recipeImage.map(x => {
+                                        return Object.keys(x).map(y => (
+                                            <span key={y}><p>{y}</p><img src={x[y]} alt={y} width="100" height="100"/></span>
+                                        ))
+                                    })
+                                }                                
                                 <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
                             </div>
                         </div>
@@ -87,7 +102,7 @@ class Home extends Component {
                             <h3>You did not upload any recipes...!!</h3>
                             <Link to="/uploadRecipe"><button className="btn-add-more-recp">Add Recipes</button></Link> 
                         </div>
-                    }                    
+                    }         
                 </div>
                 }
             </div>

@@ -1,0 +1,110 @@
+//------Color
+$priCol: #3c56e8;
+$secCol: #fcc135;
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+
+.signup{
+    background-image: url('./images/chef.svg');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 100%;
+    background-size: 30%;
+    text-align: center;
+}
+.signup-layout{
+    margin: 30px auto;
+    box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    h4{
+        font-family: $roboto;
+        color: rgb(102, 102, 102);
+        font-weight: 400;
+        margin-top: 10px;
+    }
+    form{
+        margin: 50px auto 20px auto;
+        width: 80%;
+        box-sizing: border-box;
+        input{
+            display: block;
+            margin: 20px auto;
+            padding: 15px 15px;
+            width: 70%;
+            border-radius: 7px;
+            border: 2px solid #ccc;
+            &:hover{
+                background: rgb(246, 246, 246);
+            }
+            &:focus{
+                border: 2px solid $priCol;
+                outline: none;
+            }
+        }
+        .btn-signup{
+            color: #fff;
+            background: $priCol;
+            padding: 10px 30px;
+            border-radius: 7px;
+            text-transform: uppercase;
+            font-family: $roboto;
+            margin: 10px auto 5px auto;
+            outline: none;
+            &:hover{
+                background: darken($color: $priCol, $amount: 8);
+            }
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        p{
+            font-family: $roboto;
+            margin: 20px auto;
+        }
+    }
+}
+
+@media (min-width: 400px)and(max-width: 700px){
+    .signup-layout{
+        h4{
+            font-size: 24px;
+        }
+        margin: 20px auto;
+        padding: 5px;
+        width: 80%;
+        form input{
+            width: 80%;
+        }
+    }
+}
+
+@media (min-width: 701px)and(max-width: 1100px){
+    .signup-layout{
+        margin: 20px auto;
+        padding: 5px;
+        width: 80%;
+        form input{
+            width: 75%;
+        }
+    }
+}
+@media (min-width: 100px)and(max-width: 399px){
+    .signup-layout{
+        h4{
+            font-size: 18px;
+        }
+        margin: 20px auto;
+        padding: 5px;
+        width: 80%;
+        form input{
+            width: 90%;
+        }
+    }
+}

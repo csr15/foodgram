@@ -1,0 +1,63 @@
+.main-layout {
+  margin: 70px auto 40px auto;
+}
+
+.main-layout .col-md-6 {
+  margin: 10px auto;
+}
+
+.main-layout .col-md-6 h1 {
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  margin-left: 30px;
+}
+
+.main-layout .col-md-6 .main-gram-font {
+  color: #fcc135;
+}
+
+.main-layout .col-md-6 p {
+  font-family: "Roboto", sans-serif;
+  margin: 15px 0px 0px 30px;
+  width: 450px;
+}
+
+.main-layout .col-md-6 .btn-main-layout {
+  background: #3c56e8;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: none;
+  margin-left: 30px;
+  margin-top: 30px;
+  padding: 8px;
+  border-radius: 7px;
+  min-width: 300px;
+  min-height: 50px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main-layout .col-md-6 .btn-main-layout:hover {
+  background: #1b38e1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main-layout .col-md-6 .btn-main-layout:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.main-layout .col-md-6 img {
+  width: 500px;
+}
+
+.footer-copyright {
+  font-family: "Roboto", sans-serif;
+  color: #a3a3a3;
+}
+/*# sourceMappingURL=MainLayout.css.map */

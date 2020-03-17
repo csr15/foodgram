@@ -1,0 +1,78 @@
+.login {
+  background-image: url("./images/burger.png");
+  background-repeat: no-repeat;
+  background-position-x: 5%;
+  background-position-y: 100%;
+  background-size: 15%;
+}
+
+.login-layout {
+  text-align: center;
+  margin: 30px auto;
+  -webkit-box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 25px;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.login-layout h4 {
+  font-family: "Roboto", sans-serif;
+  color: #666666;
+  font-weight: 400;
+}
+
+.login-layout form {
+  margin: 50px auto 20px auto;
+  width: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login-layout form input {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 15px;
+  width: 70%;
+  border-radius: 7px;
+  border: 2px solid #ccc;
+}
+
+.login-layout form input:hover {
+  background: #f6f6f6;
+}
+
+.login-layout form input:focus {
+  border: 2px solid #3c56e8;
+  outline: none;
+}
+
+.login-layout form .btn-login {
+  color: #fff;
+  background: #3c56e8;
+  padding: 10px 30px;
+  border-radius: 7px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  margin: 10px auto 5px auto;
+  outline: none;
+}
+
+.login-layout form .btn-login:hover {
+  background: #1b38e1;
+}
+
+.login-layout form .btn-login:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.login-layout form p {
+  font-family: "Roboto", sans-serif;
+  margin: 20px auto;
+}
+/*# sourceMappingURL=Login.css.map */

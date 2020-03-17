@@ -1,0 +1,110 @@
+//------Color
+$priCol: #3c56e8;
+$secCol: #fcc135;
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+.home-layout{
+    .header-user{
+        transition: all 0.3s;
+        padding: 10px;
+        margin: 30px auto;
+        .user-details{
+            padding: 15px;
+            background: $secCol;
+            border-radius: 15px;
+            h3{
+                font-family: $roboto;
+                color: #fff;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+            p{
+                font-family: $roboto;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .total-recipes{
+                background: rgba(255, 255, 255, 0.3);
+                color: #fff;
+                padding: 5px 8px;
+                border-radius: 50px;
+            }
+        }
+        .list-short-recipes{
+            transition: all 0.3s;
+            .btn-home-recp-list{
+                background: none;
+                padding: 5px 10px;
+                border: 1px solid rgba(0, 0, 0, 0.5);
+                color: rgba(0, 0, 0, 0.5);
+                font-family: $roboto;;
+                text-transform: capitalize;
+                font-size: 14px;
+                margin: 10px 3px;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover{
+                    border-color: $priCol;
+                    color: $priCol;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            .btn-home-add-recp{
+                color: $priCol;
+                font-family: $roboto;
+                text-transform: uppercase;
+                font-size: 14px;
+                border: none;
+                background: #fff;
+                padding: 5px 10px;
+                margin: 10px 3px;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover{
+                    background: $priCol;
+                    color: #fff;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .not-found{
+        img{
+            width: 300px;
+            margin: 10px auto 10px auto;
+        }
+        .btn-add-more-recp{
+            color: #fff;
+            background: $priCol;
+            padding: 10px 30px;
+            border-radius: 7px;
+            text-transform: uppercase;
+            font-family: $roboto;
+            margin: 20px auto 5px auto;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            &:hover{
+                background: darken($color: $priCol, $amount: 5);
+            }
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        h3{
+            margin: 20px auto 10px auto;
+            color: rgba(0, 0, 0, 0.6);
+            font-family: $roboto;
+        }
+    }
+}

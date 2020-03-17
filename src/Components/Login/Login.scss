@@ -1,0 +1,71 @@
+//------Color
+$priCol: #3c56e8;
+$secCol: #fcc135;
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+
+.login{
+    background-image: url('./images/burger.png');
+    background-repeat: no-repeat;
+    background-position-x: 5%;
+    background-position-y: 100%;
+    background-size: 15%;
+}
+.login-layout{
+    text-align: center;
+    margin: 30px auto;
+    box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    h4{
+        font-family: $roboto;
+        color: rgb(102, 102, 102);
+        font-weight: 400;
+    }
+    form{
+        margin: 50px auto 20px auto;
+        width: 80%;
+        box-sizing: border-box;
+        input{
+            display: block;
+            margin: 20px auto;
+            padding: 15px 15px;
+            width: 70%;
+            border-radius: 7px;
+            border: 2px solid #ccc;
+            &:hover{
+                background: rgb(246, 246, 246);
+            }
+            &:focus{
+                border: 2px solid $priCol;
+                outline: none;
+            }
+        }
+        .btn-login{
+            color: #fff;
+            background: $priCol;
+            padding: 10px 30px;
+            border-radius: 7px;
+            text-transform: uppercase;
+            font-family: $roboto;
+            margin: 10px auto 5px auto;
+            outline: none;
+            &:hover{
+                background: darken($color: $priCol, $amount: 8);
+            }
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        p{
+            font-family: $roboto;
+            margin: 20px auto;
+        }
+    }
+}

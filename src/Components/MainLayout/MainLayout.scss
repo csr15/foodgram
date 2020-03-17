@@ -1,0 +1,57 @@
+$priCol: #3c56e8;
+$secCol: #fcc135;
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+
+.main-layout{
+    margin: 70px auto 40px auto;
+    .col-md-6{
+        margin: 10px auto;
+        h1{
+            color: #000;
+            font-family: $roboto;
+            font-size: 60px;
+            margin-left: 30px;
+        }
+        .main-gram-font{
+            color: $secCol;
+        }
+        p{
+            font-family: $roboto;
+            margin: 15px 0px 0px 30px;
+            width: 450px;
+        }
+        .btn-main-layout{
+            background: $priCol;
+            color: #fff;
+            font-family: $roboto;
+            font-weight: 400;
+            text-transform: uppercase;
+            border: none;
+            margin-left: 30px;
+            margin-top: 30px;
+            padding: 8px;
+            border-radius: 7px;
+            min-width: 300px;
+            min-height: 50px;
+            transition: all 0.3s;
+            &:hover{    
+                background: darken($color: $priCol, $amount: 8);
+                transition: all 0.3s;
+            }
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        img{
+            width: 500px;
+        }
+    }
+}
+.footer-copyright{
+    font-family: $roboto;
+    color: rgb(163, 163, 163);
+}

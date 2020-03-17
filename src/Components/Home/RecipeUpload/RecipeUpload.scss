@@ -1,0 +1,220 @@
+//------Color
+$priCol: #3c56e8;
+$secCol: #fcc135;
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+
+.upload-timeline{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 20px auto;
+        div{
+            background: #ccc;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            h6{
+                color: #000;
+                text-align: center;
+                padding: 12px;
+            }
+        }
+}
+.recipe-layout{
+    margin: 30px auto;
+    box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    box-sizing: border-box;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    h4{
+        color: #000;
+        font-family: $nuni;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 5px auto 20px auto;
+    }
+    .progress{
+        width: 70%;
+        margin: 10px auto 0px auto;
+        height: 10px;
+            .progress-bar{
+                background: $priCol;
+            }
+    }
+    .upload-recipe{
+        form{
+            margin: 50px auto 20px auto;
+            width: 80%;
+            box-sizing: border-box;
+            textarea{
+                padding: 10px 10px;
+                margin: 0;
+                min-height: 100px;
+                min-width: 90%;
+                box-sizing: border-box;
+                border-radius: 12px;
+                overflow-y: hidden;
+                box-shadow: 1px 6px 12px -1px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                text-transform: capitalize;
+                font-family: $roboto;
+                &:focus{
+                    outline: none;
+                }
+            }
+            input[type="text"], input[type="radio"]{
+                display: block;
+                margin: 20px auto;
+                padding: 15px 15px;
+                width: 70%;
+                border-radius: 7px;
+                border: 2px solid #ccc;
+                text-transform: capitalize;
+                &:hover{
+                    background: rgb(246, 246, 246);
+                }
+                &:focus{
+                    border: 2px solid $priCol;
+                    outline: none;
+                }
+                .custom-radio-button input[type="radio"]{
+                    background: red;
+                }
+            }
+            .btn-upload{
+                color: #fff;
+                background: $priCol;
+                padding: 10px 30px;
+                border-radius: 7px;
+                text-transform: uppercase;
+                font-family: $roboto;
+                margin: 10px auto 5px auto;
+                outline: none;
+                font-size: 16px;
+                &:hover{
+                    background: darken($color: $priCol, $amount: 8);
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            label{
+                background: transparent;
+                color: $priCol;
+                padding: 10px 30px;
+                font-family: $roboto;
+                text-transform: uppercase;
+                border-radius: 50px;
+                cursor: pointer;
+                &:hover{
+                    background: rgba(60, 86, 232, 0.1);
+                    transition: all 0.3s;
+                }
+            }
+            input[type="file"] {
+                display: none   ;
+            }
+            p{
+                font-family: $roboto;
+                margin: 20px auto;
+            }
+        }
+        .form-inline{
+            width: 70%;
+            margin: 10px auto;
+            padding: 0px;
+            label{
+                margin: 5px auto;
+                padding: 0px;
+            }
+        }
+    }
+    .ingredients {
+        width: 70%;
+        box-sizing: border-box;
+        margin: auto;
+        overflow-x: hidden;
+        p{
+            font-family: $roboto;
+            color: rgb(116, 116, 116);
+            text-transform: capitalize;
+        }
+    }
+    .ingredients-total{
+        width: 70%;
+        margin: -15px auto 10px auto;
+        box-sizing: border-box;
+        padding: 0px;
+        p{
+            display: inline-block;
+            border: 1px solid #333;
+            border-radius: 50px;
+            padding: 3px 5px;
+            margin: 10px 100px;
+            color: #333;
+            font-family: $roboto;
+            text-transform: capitalize;
+                .badge{
+                    background: $secCol;
+                    color: #000;
+                    padding: 7px;
+                    border-radius: 50px;
+                    margin: 0px 0px 0px 5px;
+                }
+        }
+    }
+    .recipe-instruction{
+        width: 75%;
+        margin: auto auto;
+        overflow-x: hidden;
+        .step-class{
+            font-family: $roboto;
+            color: #000;
+            background: $secCol;
+            padding: 5px 10px;
+            border-radius: 50px;
+            margin: 10px 3px auto auto;
+        }
+        p{
+            color: #333;
+            font-family: $roboto;
+            line-height: 32px;
+            text-align: left;
+            padding: 5px;
+            word-wrap: break-word;
+            text-transform: capitalize;
+        }
+    }
+}
+.preview-image{
+    width: 500px;
+    margin: 20px auto 25px auto;
+    box-shadow: 3px 6px 12px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.btn-upload-to-database{
+    color: #fff;
+    background: $priCol;
+    padding: 10px 30px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    font-family: $roboto;
+    margin: 10px auto 5px auto;
+    outline: none;
+    &:hover{
+        background: darken($color: $priCol, $amount: 8%)
+    }
+    &:focus{
+        outline: none;
+        box-shadow: none        ;
+    }
+}

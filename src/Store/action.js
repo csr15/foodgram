@@ -60,18 +60,19 @@ const Reducer = (state=initialState, action) => {
         case 'ON_UPLOADED_SUCCESSFULLY':
             return{
                 ...state,
-                uploaded: state.uploaded
+                uploaded: state.uploaded,
+                recipeUploadStatus: 1,
+                recipeName: '',
+                recipeDesc: '',
+                isIng: '',
+                recipeIns: [],
+                allIngredients: [],
             }
         case 'DID_RECIPES_UPLOADED':
             return{
                 ...state,
                 didUploaded: true
             }
-        // case 'UPDATE_REDUX_STATE':
-        //     return{
-        //         state: undefined,
-        //         recipeUploadStatus: 1
-        //     }
         case 'VALUE':
             return{
                 ...state,

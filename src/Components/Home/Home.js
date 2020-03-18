@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './Home.css';
 import { Link } from 'react-router-dom';
 import notFoundImg from './Images/not-found.gif';
-import { Skeleton } from '@material-ui/lab';
+// import { Skeleton } from '@material-ui/lab';
 
 class Home extends Component {
     state = {
@@ -61,20 +61,7 @@ class Home extends Component {
     render(){
         return(
             <div className="container home-layout">
-                {
-                    this.state.namesRecieved ? 
-                    <div className="container">
-                        <div className="row d-flex justify-content-center mt-3">
-                            <div className="text-center my-auto p-2">
-                                <Skeleton variant="rect" width={300} height={200} animation="wave"/>
-                            </div>
-                            <div className="text-center p-2">
-                                <Skeleton variant="rect" width={600} height={200} animation="wave"/>
-                            </div>
-                        </div>
-                    </div>
-                    :
-                    <div className="row header-user">
+                <div className="header-user">
                     {
                         this.props.didUploaded ? 
                         <div className="row">
@@ -83,28 +70,26 @@ class Home extends Component {
                                 <p>Recipes Uploaded: <span className="total-recipes">{this.state.recipeNames.length}</span> </p>
                             </div>
                             <div className="col-md-9 list-short-recipes my-auto">
-                                {
-                                    console.log(this.state.recipeImage)
-                                }
-                                { 
-                                    this.state.recipeImage.map(x => {
-                                        return Object.keys(x).map(y => (
-                                            <span key={y}><p>{y}</p><img src={x[y]} alt={y} width="100" height="100"/></span>
-                                        ))
-                                    })
-                                }                                
+                                        {this.state.recipeImage.map(x => {
+                                            return Object.keys(x).map(y => (
+                                                <span className="recp-img-list  ">
+                                                    <Link to="/myRecipe"><p className="my-auto"><span><img src={x[y]} alt={y} className="img-responsive my-auto"/>{y}</span></p></Link>
+                                                </span> 
+                                            ))
+                                        })}
                                 <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
                             </div>
                         </div>
                         :
-                        <div className="col-md-12 text-center not-found">
-                            <img src={notFoundImg} alt="Not Found...!!!" className="img-responsive"/>
-                            <h3>You did not upload any recipes...!!</h3>
-                            <Link to="/uploadRecipe"><button className="btn-add-more-recp">Add Recipes</button></Link> 
+                        <div className="row">
+                            <div className="col-md-12 text-center not-found">
+                                <img src={notFoundImg} alt="Not Found...!!!" className="img-responsive"/>
+                                <h3>You did not upload any recipes...!!</h3>
+                                <Link to="/uploadRecipe"><button className="btn-add-more-recp">Add Recipes</button></Link> 
+                            </div>
                         </div>
                     }         
                 </div>
-                }
             </div>
         )
     }

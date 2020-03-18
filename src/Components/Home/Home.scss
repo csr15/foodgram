@@ -1,6 +1,7 @@
 //------Color
 $priCol: #3c56e8;
 $secCol: #fcc135;
+$priShade: rgba(60, 86, 232, 0.2);
 
 //------Font
 $roboto: 'Roboto', sans-serif;
@@ -10,49 +11,60 @@ $nuni: 'Nunito' , sans-serif;
         transition: all 0.3s;
         padding: 10px;
         margin: 30px auto;
+        
         .user-details{
             padding: 15px;
-            background: $secCol;
+            box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             h3{
                 font-family: $roboto;
-                color: #fff;
+                color: $priCol;
                 font-weight: 400;
                 text-transform: uppercase;
+                border-left: 5px solid $priCol;
+                padding-left: 5px;
             }
             p{
                 font-family: $roboto;
-                color: rgba(255, 255, 255, 0.8);
+                color: rgba(0, 0, 0, 0.8);
             }
             .total-recipes{
-                background: rgba(255, 255, 255, 0.3);
-                color: #fff;
+                background: $priShade;
+                color: $priCol;
                 padding: 5px 8px;
                 border-radius: 50px;
             }
         }
-        .list-short-recipes{
-            transition: all 0.3s;
-            .btn-home-recp-list{
-                background: none;
-                padding: 5px 10px;
-                border: 1px solid rgba(0, 0, 0, 0.5);
-                color: rgba(0, 0, 0, 0.5);
-                font-family: $roboto;;
-                text-transform: capitalize;
-                font-size: 14px;
-                margin: 10px 3px;
-                border-radius: 50px;
-                cursor: pointer;
-                transition: all 0.3s;
-                &:hover{
-                    border-color: $priCol;
-                    color: $priCol;
-                }
-                &:focus{
-                    outline: none;
-                    box-shadow: none;
-                }
+        .col-md-9{
+            display: flex;
+            
+            white-space: nowrap;
+            overflow-x: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+                p{
+                    display: flex;
+                    word-wrap: none;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    margin: 10px;
+                    padding: 5px 8px;
+                    border-radius: 50px;
+                    font-family: $roboto;
+                    font-size: 16px;
+                    color: rgba(0, 0, 0, 0.6);
+                    text-transform: capitalize;
+                    transition: all 0.3s;
+                    &:focus{
+                        outline: none;
+                        box-shadow: none;
+                    }
+                    img{
+                        border-radius: 50px;
+                        margin-right: 5px;
+                        width: 40px;
+                        height: 40px;
+                    }
             }
             .btn-home-add-recp{
                 color: $priCol;
@@ -106,5 +118,5 @@ $nuni: 'Nunito' , sans-serif;
             color: rgba(0, 0, 0, 0.6);
             font-family: $roboto;
         }
-    }
+    } 
 }

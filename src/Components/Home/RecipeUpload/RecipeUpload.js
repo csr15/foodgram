@@ -75,6 +75,7 @@ class RecipeUpload extends Component {
         const userId = Firebase.auth().currentUser.uid;
         Firebase.storage().ref(`RecipeImage/${userId}/${this.state.recipeName}`).put(this.state.imgFile)
         .then(snap => {
+            this.props.finalUpload();
             console.log(snap, "UPLOADED SUCCCESSFULLY");
         })
         .catch(err => console.log(err));

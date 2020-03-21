@@ -47,13 +47,13 @@
 }
 
 .signup-layout form input:focus {
-  border: 2px solid #3c56e8;
+  border: 2px solid #40e66f;
   outline: none;
 }
 
 .signup-layout form .btn-signup {
   color: #fff;
-  background: #3c56e8;
+  background: #40e66f;
   padding: 10px 30px;
   border-radius: 7px;
   text-transform: uppercase;
@@ -63,7 +63,7 @@
 }
 
 .signup-layout form .btn-signup:hover {
-  background: #1b38e1;
+  background: #1de054;
 }
 
 .signup-layout form .btn-signup:focus {

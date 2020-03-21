@@ -18,10 +18,12 @@ class Login extends React.Component {
    handleSubmit = (event) => {
         event.preventDefault();
         const { mail, password } = this.state;
+        Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.LOCAL);
         Firebase
             .auth()
             .signInWithEmailAndPassword(mail, password)
             .then((user) => {
+
                 Auth.login(() => {
                     this.props.history.push("/home");
                 });

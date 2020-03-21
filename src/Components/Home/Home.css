@@ -60,6 +60,11 @@
   text-transform: capitalize;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  text-decoration: none;
+}
+
+.home-layout .header-user .col-md-9 p:hover {
+  text-decoration: none;
 }
 
 .home-layout .header-user .col-md-9 p:focus {

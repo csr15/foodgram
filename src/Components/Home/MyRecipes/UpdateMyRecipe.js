@@ -43,7 +43,7 @@ class UpdateRecipe extends Component {
             });
         }
         const outputRecpIng = recipeIng.map(ing => {
-            return <button>{ing.name} <span key={ing.name} className="recp-ing-amount">{ing.amount}</span> </button>
+            return <button key={ing.name}>{ing.name} <span className="recp-ing-amount">{ing.amount}</span> </button>
         })
 
         //Recipe Instructions

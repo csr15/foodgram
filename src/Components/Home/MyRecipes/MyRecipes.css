@@ -110,6 +110,10 @@ p {
   text-transform: capitalize;
 }
 
+.my-recipes-layout .skull-layout {
+  margin: 30px auto;
+}
+
 .my-recipes-layout .not-found img {
   width: 300px;
   margin: 10px auto 10px auto;

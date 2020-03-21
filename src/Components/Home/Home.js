@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './Home.css';
 import { Link } from 'react-router-dom';
 import notFoundImg from './Images/not-found.gif';
-// import { Skeleton } from '@material-ui/lab';
+import Skeleton from 'react-loading-skeleton';
 
 class Home extends Component {
     state = {
@@ -15,6 +15,9 @@ class Home extends Component {
     }
     componentDidMount() {
         const user = Firebase.auth().currentUser;
+        user.getIdToken().then(idToken => {
+            localStorage.setItem('Token', idToken)
+        })
 
         //Checking whether the user uploaded recipes or not
         const dbRef = Firebase.database().ref(`Recipes`);
@@ -31,10 +34,9 @@ class Home extends Component {
                             imgValues.push({
                                 [names]: url
                             })
-                            this.setState({recipeImage: imgValues})
+                            this.setState({recipeImage: imgValues, namesRecieved: false})
                         })
                         allRecpNames.push(names);
-                        this.setState({namesRecieved: false})
                     })
                 })
             })
@@ -62,40 +64,50 @@ class Home extends Component {
         return(
             <div className="container home-layout">
                 <div className="header-user">
-                    {
-                        this.props.didUploaded ? 
-                        <div className="row">
+                {
+                    this.state.namesRecieved ? 
+                    <div className="row">
+                        <div className="col-md-4 p-2">
+                            <Skeleton height={150} width={300} /> 
+                        </div>
+                        <div className="col-md-5 p-2 my-auto">
+                            <Skeleton width={500} height={100} />
+                        </div>
+                    </div>
+                        :
+                    this.props.didUploaded ? 
+                        (<div className="row">
                             <div className="col-md-3 user-details">
                                 <h3>{this.state.userName}</h3>
                                 <p>Recipes Uploaded: <span className="total-recipes">{this.state.recipeNames.length}</span> </p>
                             </div>
                             <div className="col-md-9 list-short-recipes my-auto">
-                                        {this.state.recipeImage.map(x => {
-                                            return Object.keys(x).map(y => (
-                                                <span className="recp-img-list  ">
-                                                    <Link to="/myRecipe"><p className="my-auto"><span><img src={x[y]} alt={y} className="img-responsive my-auto"/>{y}</span></p></Link>
-                                                </span> 
-                                            ))
-                                        })}
+                                {this.state.recipeImage.map(x => {
+                                    return Object.keys(x).map(y => (
+                                        <span className="recp-img-list  ">
+                                            <Link to="/myRecipe"><p className="my-auto"><span><img src={x[y]} alt={y} className="img-responsive my-auto"/>{y}</span></p></Link>
+                                        </span> 
+                                    ))
+                                })}
                                 <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
                             </div>
-                        </div>
+                        </div>)
                         :
-                        <div className="row">
+                       ( <div className="row">
                             <div className="col-md-12 text-center not-found">
                                 <img src={notFoundImg} alt="Not Found...!!!" className="img-responsive"/>
                                 <h3>You did not upload any recipes...!!</h3>
                                 <Link to="/uploadRecipe"><button className="btn-add-more-recp">Add Recipes</button></Link> 
                             </div>
-                        </div>
-                    }         
+                        </div>)
+                    }       
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps= state => {
+const mapStateToProps= (state) => {
     return{
         didUploaded: state.didUploaded
     }

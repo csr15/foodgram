@@ -25,6 +25,14 @@
   font-weight: 400;
 }
 
+.login-layout h4 span {
+  color: #000;
+  border-bottom: 3px solid #fcc135;
+  padding-bottom: 3px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
 .login-layout form {
   margin: 50px auto 20px auto;
   width: 80%;
@@ -46,13 +54,13 @@
 }
 
 .login-layout form input:focus {
-  border: 2px solid #3c56e8;
+  border: 2px solid #2364E6;
   outline: none;
 }
 
 .login-layout form .btn-login {
   color: #fff;
-  background: #3c56e8;
+  background: #2364E6;
   padding: 10px 30px;
   border-radius: 7px;
   text-transform: uppercase;
@@ -62,7 +70,7 @@
 }
 
 .login-layout form .btn-login:hover {
-  background: #1b38e1;
+  background: #1752c9;
 }
 
 .login-layout form .btn-login:focus {

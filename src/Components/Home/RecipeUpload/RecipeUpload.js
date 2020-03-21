@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+
 import './RecipeUpload.css';
 import rightArrow from '../../MainLayout/images/right-arrow.svg'
-import { withRouter } from 'react-router';
 import uploadImg from './images/cloud.svg';
 import Firebase from '../../Fire/base.js';
 import axios from '../../../axios-order';

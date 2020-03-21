@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import './Navigation.css';
 import { Link, withRouter } from 'react-router-dom';
+
+import './Navigation.css';
 import Auth from '../../Auth/Auth';
 import Firebase from '../../Fire/base';
-import { connect } from 'react-redux';
+
 class Navigation extends Component {
+
+    //Logout
     logoutHander = () => {
         Auth.logout(() => {
             Firebase.auth().signOut().then(() => {
@@ -22,7 +25,8 @@ class Navigation extends Component {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
-                        {
+                        {/* Only if the user is Authenticated navigations are displayed else Login is displayed */}
+                        {   
                             Auth.isAuthenticated() === true  ?
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
@@ -53,9 +57,4 @@ class Navigation extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return{
-        setValue: () => dispatch({type: 'VALUE'})
-    }
-}
-export default withRouter(connect(null, mapDispatchToProps)(Navigation))
+export default withRouter(Navigation);

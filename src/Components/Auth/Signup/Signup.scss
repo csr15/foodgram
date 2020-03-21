@@ -1,5 +1,5 @@
 //------Color
-$priCol: #40e66f;
+$priCol: #3c56e8;
 $secCol: #fcc135;
 
 //------Font
@@ -27,6 +27,13 @@ $nuni: 'Nunito' , sans-serif;
         color: rgb(102, 102, 102);
         font-weight: 400;
         margin-top: 10px;
+        span{
+            color: #000; 
+            border-bottom: 3px solid #fcc135; 
+            padding-bottom: 3px; 
+            font-size: 34px; 
+            font-weight: bold;
+        }
     }
     form{
         margin: 50px auto 20px auto;

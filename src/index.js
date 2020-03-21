@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Reducer from './Store/action';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const store = createStore(Reducer);
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import MyRecipesAction from './Store/MyRecipes/MyRecipesAction';
+import uploadRecpieAction from './Store/uploadRecipe/uploadAction';
+
+const rootReducer = combineReducers({
+    uploadRecp: uploadRecpieAction,
+    myRecp: MyRecipesAction
+})
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 

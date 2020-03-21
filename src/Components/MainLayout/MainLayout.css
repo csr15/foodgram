@@ -14,7 +14,7 @@
 }
 
 .main-layout .col-md-6 .main-gram-font {
-  color: #fcc135;
+  color: #E7BB41;
 }
 
 .main-layout .col-md-6 p {
@@ -24,7 +24,7 @@
 }
 
 .main-layout .col-md-6 .btn-main-layout {
-  background: #3c56e8;
+  background: #2364E6;
   color: #fff;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -41,7 +41,7 @@
 }
 
 .main-layout .col-md-6 .btn-main-layout:hover {
-  background: #1b38e1;
+  background: #1752c9;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }

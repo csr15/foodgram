@@ -1,6 +1,6 @@
 //------Color
-$priCol: #3c56e8;
-$secCol: #fcc135;
+$priCol: #2364E6;
+$secCol: #E7BB41;
 
 //------Font
 $roboto: 'Roboto', sans-serif;
@@ -26,6 +26,13 @@ $nuni: 'Nunito' , sans-serif;
         font-family: $roboto;
         color: rgb(102, 102, 102);
         font-weight: 400;
+        span{
+            color: #000; 
+            border-bottom: 3px solid #fcc135; 
+            padding-bottom: 3px; 
+            font-size: 34px; 
+            font-weight: bold;
+        }
     }
     form{
         margin: 50px auto 20px auto;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import imgOne from './images/share-food.jpg';
-import './MainLayout.css';
 import { Link, withRouter } from 'react-router-dom';
+
+import imgOne from './images/mainImg.jpg';
+import './MainLayout.css';
 
 class MainLayout extends Component {
     render() {

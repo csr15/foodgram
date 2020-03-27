@@ -2,19 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 import './Navigation.css';
-import Auth from '../../Auth/Auth';
-import Firebase from '../../Fire/base';
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../Store/index';
 
 class Navigation extends Component {
-
-    //Logout
-    logoutHander = () => {
-        Auth.logout(() => {
-            Firebase.auth().signOut().then(() => {
-                window.location.reload();
-            });
-        })
-    }
     render(){
         return(
             <div className="custom-container-fluid">
@@ -27,15 +18,15 @@ class Navigation extends Component {
                         <div className="collapse navbar-collapse" id="navbarNav">
                         {/* Only if the user is Authenticated navigations are displayed else Login is displayed */}
                         {   
-                            Auth.isAuthenticated() === true  ?
+                            this.props.localId  ?
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/home"><i className="fas fa-home" style={{marginRight: '3px'}}></i>Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/myrecipe"><i className="fas fa-stream" style={{marginRight: '3px'}}></i>My Recipes</Link>
+                                    <Link className="nav-link" to="/my-recipes"><i className="fas fa-stream" style={{marginRight: '3px'}}></i>My Recipes</Link>
                                 </li>
-                                <li className="nav-item"  onClick={this.logoutHander}>
+                                <li className="nav-item" onClick={this.props.onLogout}>
                                     <Link className="nav-link" to="/"><i className="fas fa-user" style={{marginRight: '3px'}}></i>Logout</Link>
                                 </li>
                                 <li className="nav-item upload-nav">
@@ -54,7 +45,19 @@ class Navigation extends Component {
                 </nav>
             </div>
         );
+    };
+};
+
+const mapStateToProps = state => {
+    return{
+        localId: state.auth.localId
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return{
+        onLogout: () => dispatch(actionTypes.logout())
     }
 }
 
-export default withRouter(Navigation);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navigation));

@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom';
-import Firebase from '../../Fire/base'
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../../../Store/index';
 
-import './Signup.css'
+import Spinner from '../../UI/Spinner/Spinner';
+import { Aux } from '../../../HOC/Auxilary/Auxilary';
+import './Signup.css';
 
 class Signup extends React.Component{
     state = {
@@ -10,7 +13,6 @@ class Signup extends React.Component{
         age: '',
         mail: '',
         password: '',
-        error: ''
     };
 
     //Handling user inputs
@@ -21,35 +23,17 @@ class Signup extends React.Component{
     //SignUp with firebase authentication
     handleSubmit = (event) => {
         event.preventDefault();
-        const { mail, password, name, age } = this.state;
-        Firebase
-            .auth()
-            .createUserWithEmailAndPassword(mail, password)
-            .then((res) => {
-                res.user.updateProfile({
-                    displayName: name
-                });
-                const user = Firebase.auth().currentUser;
-                const dbRef = Firebase.database().ref('Accounts');
-                //Updating user details in firebase database for future refrence
-                if(user != null){
-                    dbRef.child(Firebase.auth().currentUser.uid).set({
-                        name: name,
-                        age: age,
-                        email: mail,
-                        userId: user.uid
-                    });
-                };
-                this.props.history.push('/login');
-            })
-            .catch((error) => {
-                this.setState({ error: error.message });
-            });
+        this.setState({ spin: true });
+        const { mail, password } = this.state;
+        this.props.onAuth(mail, password, true);        
     };
     render(){    
+        if(this.props.localId){
+            return <Redirect to="/login" />
+        }
         return (
-            <div className="signup">
-                <div className="signup-layout">
+            <Aux>
+                <div className="signup-layout" style={this.state.spin ? {opacity: "0.6"} : null}>
                     <h4>Signup To <span>FoodGram</span></h4>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" name="name" id="name" autoComplete="off" placeholder="User Name" onChange={this.handleInputChange}/>
@@ -61,10 +45,29 @@ class Signup extends React.Component{
                         <p className="text-muted">*By signingIn you are agreeing with terms and policies of FoodGram</p>
                         <p className="text-muted">Already have account in FoodGram? <Link to="/login">Login</Link></p>
                     </form>
+                    {
+                        this.props.loading ?
+                        <Spinner />
+                        :
+                        null
+                    }
                 </div>
-            </div>
+            </Aux>
         )
     }
 }    
 
-export default withRouter(Signup);
+const mapStateToProps = state => {
+    return{
+        loading: state.auth.loading,
+        localId: state.auth.localId
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return{
+        onAuth: (mail, password, signup) => dispatch(actions.auth(mail, password, signup))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

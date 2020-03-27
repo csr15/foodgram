@@ -3,11 +3,12 @@ import { Link, withRouter } from 'react-router-dom';
 
 import imgOne from './images/mainImg.jpg';
 import './MainLayout.css';
+import { Aux } from '../../HOC/Auxilary/Auxilary';
 
 class MainLayout extends Component {
     render() {
         return (
-            <div>
+            <Aux>
                 <div className="container main-layout">
                     <div className="row">
                         <div className="col-md-6 text-left my-auto">
@@ -23,7 +24,7 @@ class MainLayout extends Component {
                 <div className="footer-copyright text-center p-3 bg-light">© 2020 Copyright:
                     <a href="https://boxdevs.firebaseapp.com/"> Boxdevs </a>
                 </div>
-            </div>
+            </Aux>
         )
     }
 }

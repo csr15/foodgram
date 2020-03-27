@@ -4,14 +4,15 @@ $secCol: #E7BB41;
 //------Font
 $roboto: 'Roboto', sans-serif;
 $nuni: 'Nunito' , sans-serif;
+$marker: 'Permanent Marker', cursive;
 
 .main-layout{
-    margin: 70px auto 40px auto;
+    margin: 30px auto 0px auto;
     .col-md-6{
         margin: 10px auto;
         h1{
             color: #000;
-            font-family: $roboto;
+            font-family: $marker;
             font-size: 60px;
             margin-left: 30px;
         }

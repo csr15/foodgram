@@ -1,20 +1,12 @@
-.login {
-  background-image: url("./images/burger.png");
-  background-repeat: no-repeat;
-  background-position-x: 5%;
-  background-position-y: 100%;
-  background-size: 15%;
-}
-
 .login-layout {
   text-align: center;
   margin: 30px auto;
   -webkit-box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
-  width: 50%;
+  width: 45%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 25px;
+  padding: 25px 20px;
   border-radius: 15px;
   background: #fff;
 }
@@ -30,12 +22,12 @@
   border-bottom: 3px solid #fcc135;
   padding-bottom: 3px;
   font-size: 34px;
-  font-weight: bold;
+  font-family: "Permanent Marker", cursive;
 }
 
 .login-layout form {
   margin: 50px auto 20px auto;
-  width: 80%;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -44,7 +36,7 @@
   display: block;
   margin: 20px auto;
   padding: 15px 15px;
-  width: 70%;
+  width: 65%;
   border-radius: 7px;
   border: 2px solid #ccc;
 }
@@ -82,5 +74,35 @@
 .login-layout form p {
   font-family: "Roboto", sans-serif;
   margin: 20px auto;
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .login-layout {
+    width: 70%;
+  }
+  .login-layout input {
+    width: 100%;
+    padding: 10px 15px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+  .login-layout {
+    width: 90%;
+  }
+  .login-layout input {
+    width: 100%;
+    padding: 10px 15px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+  .login-layout {
+    width: 90%;
+  }
+  .login-layout input {
+    width: 100%;
+    padding: 10px 15px;
+  }
 }
 /*# sourceMappingURL=Login.css.map */

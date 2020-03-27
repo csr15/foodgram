@@ -1,0 +1,26 @@
+img{
+    width: 500px;
+    margin: 30px auto;
+    display: block;
+}
+.btn-not-found{
+    background: #fcc135;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 10px 32px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    margin: 20px auto;
+    text-decoration: none;
+}
+.btn-not-found:hover{
+    background: #fff;
+    color: #fcc135;
+    border: 2px solid #fcc135;
+}
+.btn-not-found:focus{
+    outline: none;
+    box-shadow: none;
+}

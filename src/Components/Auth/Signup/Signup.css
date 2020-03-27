@@ -1,20 +1,12 @@
-.signup {
-  background-image: url("./images/chef.svg");
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 100%;
-  background-size: 30%;
-  text-align: center;
-}
-
 .signup-layout {
+  text-align: center;
   margin: 30px auto;
   -webkit-box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
-  width: 50%;
+  width: 45%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 25px;
+  padding: 25px 20px;
   border-radius: 15px;
   background: #fff;
 }
@@ -26,9 +18,17 @@
   margin-top: 10px;
 }
 
+.signup-layout h4 span {
+  color: #000;
+  border-bottom: 3px solid #fcc135;
+  padding-bottom: 3px;
+  font-size: 34px;
+  font-family: "Permanent Marker", cursive;
+}
+
 .signup-layout form {
   margin: 50px auto 20px auto;
-  width: 80%;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -37,7 +37,7 @@
   display: block;
   margin: 20px auto;
   padding: 15px 15px;
-  width: 70%;
+  width: 65%;
   border-radius: 7px;
   border: 2px solid #ccc;
 }
@@ -74,45 +74,32 @@
 
 .signup-layout form p {
   font-family: "Roboto", sans-serif;
-  margin: 20px auto;
+  margin: 25px auto 0px auto;
 }
 
-@media (min-width: 400px) and (max-width: 700px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .signup-layout {
-    margin: 20px auto;
-    padding: 5px;
-    width: 80%;
-  }
-  .signup-layout h4 {
-    font-size: 24px;
-  }
-  .signup-layout form input {
-    width: 80%;
+    width: 60%;
   }
 }
 
-@media (min-width: 701px) and (max-width: 1100px) {
+@media (min-width: 500px) and (max-width: 799px) {
   .signup-layout {
-    margin: 20px auto;
-    padding: 5px;
-    width: 80%;
-  }
-  .signup-layout form input {
-    width: 75%;
-  }
-}
-
-@media (min-width: 100px) and (max-width: 399px) {
-  .signup-layout {
-    margin: 20px auto;
-    padding: 5px;
-    width: 80%;
-  }
-  .signup-layout h4 {
-    font-size: 18px;
-  }
-  .signup-layout form input {
     width: 90%;
+  }
+  .signup-layout input {
+    width: 100%;
+    padding: 10px 15px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+  .signup-layout {
+    width: 90%;
+  }
+  .signup-layout input {
+    width: 100%;
+    padding: 10px 15px;
   }
 }
 /*# sourceMappingURL=Signup.css.map */

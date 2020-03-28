@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Aux } from '../../../HOC/Auxilary/Auxilary';
 import { connect } from 'react-redux';
 import Firebase from '../../Fire/base';
+import Skeleton from 'react-loading-skeleton'
 
 class UpdateMyRecipe extends Component {
 
@@ -67,7 +68,12 @@ class UpdateMyRecipe extends Component {
                 <div className="my-recipes container">
                     <div className="row">
                         <div className="col-md-4 recp-img mx-auto my-auto text-center">
-                            <img src={this.state.recipeImagesUrl} alt="Recipes Snap" className="img-responsive" />
+                            {
+                                this.state.recipeImagesUrl ?
+                                <img src={this.state.recipeImagesUrl} alt="Recipes Snap" className="img-responsive" />
+                                :
+                                <Skeleton height={250} width={250}/>
+                            }
                         </div>
                     <div className="col-md-8">
                         <div className="row">

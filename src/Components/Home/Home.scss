@@ -7,6 +7,12 @@ $priShade: rgba(60, 86, 232, 0.2);
 $roboto: 'Roboto', sans-serif;
 $nuni: 'Nunito' , sans-serif;
 .home-layout{
+    .skull-layout{
+        display: flex;
+        h5{
+            margin: auto 10px;
+        }
+    }
     .header-user{
         transition: all 0.3s;
         padding: 10px;

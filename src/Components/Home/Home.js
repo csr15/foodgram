@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton'
 
 import './Home.css'
 import Firebase from '../Fire/base';
@@ -17,8 +18,7 @@ class Home extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        console.log(prevState);
-        if(this.state.didImgRecieved=== false && prevProps.updateValue >= 1){
+        if(this.state.didImgRecieved=== false && this.props.updateValue){
             const fetchedRecpData = [];
             const fetchedRecpImg = [];
             for(let key in this.props.myRecpData){
@@ -58,7 +58,16 @@ class Home extends React.Component {
                                     ))
                                 })
                             : 
-                            null
+                            <div className="row">
+                                <div className="col-md-5 skull-layout p-2 m-3">
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                    <h5><Skeleton width={100} height={50}/></h5>
+                                </div>
+                            </div>
                         }
                         <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
                         </div>

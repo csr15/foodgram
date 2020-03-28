@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton'
 
 import * as actions from '../../../Store/index';
 import UpdateMyRecipe from './UpdateMyRecipe';
@@ -11,7 +12,8 @@ class MyRecipes extends Component {
         super()
         this.state = {
             recipeDetails: [],
-            recipeImages: []
+            recipeImages: [],
+            recipesRecieved: false
         }
     }
     
@@ -31,7 +33,8 @@ class MyRecipes extends Component {
             };
             return { 
                 recipeDetails: fetchedRecipes, 
-                recipeImages: fetchedImages
+                recipeImages: fetchedImages,
+                recipesRecieved: true
             }
         };
     }
@@ -41,19 +44,28 @@ class MyRecipes extends Component {
             <div className="my-recipes-layout">
                 <div className="row">
                     {
-                        this.state.recipeDetails ?
-                        this.state.recipeDetails.map(recp => (
-                            <UpdateMyRecipe 
-                                key={recp.id} 
-                                name={recp.recipeName} 
-                                desc={recp.description} 
-                                ing={recp.ingredients} 
-                                ins={recp.instructions} 
-                                recpImg={this.state.recipeImages}
-                            />
-                        ))
+                        this.props.myRecpData ?
+                            this.state.recipeDetails ?
+                                (this.state.recipeDetails.map(recp => (
+                                    <UpdateMyRecipe 
+                                        key={recp.id} 
+                                        name={recp.recipeName} 
+                                        desc={recp.description} 
+                                        ing={recp.ingredients} 
+                                        ins={recp.instructions} 
+                                        recpImg={this.state.recipeImages}
+                                    />
+                                )))
+                                :
+                                null
                         :
-                        null
+                        <div className="row">
+                            <div className="col-md-5 skull-layout p-2 m-3">
+                                <h5><Skeleton width={100} height={50}/></h5>
+                                <h5><Skeleton width={100} height={50}/></h5>
+                                <h5><Skeleton width={100} height={50}/></h5>
+                            </div>
+                        </div>
                     }
                     <div className="container">
                         <div className="row">

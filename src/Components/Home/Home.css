@@ -1,3 +1,13 @@
+.home-layout .skull-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home-layout .skull-layout h5 {
+  margin: auto 10px;
+}
+
 .home-layout .header-user {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;

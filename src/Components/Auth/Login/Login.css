@@ -76,6 +76,12 @@
   margin: 20px auto;
 }
 
+@media (min-width: 1001px) and (max-width: 1200px){
+  .login-layout{
+    width: 70%;
+  }
+}
+
 @media (min-width: 800px) and (max-width: 1000px) {
   .login-layout {
     width: 70%;
@@ -88,7 +94,7 @@
 
 @media (min-width: 500px) and (max-width: 799px) {
   .login-layout {
-    width: 90%;
+    width: 70%;
   }
   .login-layout input {
     width: 100%;
@@ -98,7 +104,7 @@
 
 @media (min-width: 300px) and (max-width: 499px) {
   .login-layout {
-    width: 90%;
+    width: 80%;
   }
   .login-layout input {
     width: 100%;

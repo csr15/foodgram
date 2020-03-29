@@ -19,6 +19,7 @@ const AsyncComponent = asyncComponents(() => {
 class App extends Component {
     componentDidMount() {
         this.props.onTryAutoSignup();
+        this.props.fetchRecipes(this.props.localId);
     }
     render(){
         return (

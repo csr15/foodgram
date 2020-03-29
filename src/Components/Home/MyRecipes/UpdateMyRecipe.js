@@ -12,11 +12,11 @@ class UpdateMyRecipe extends Component {
     }
 
     componentDidMount(){
-        for(let recpName in this.props.name){
-            const storageRef = Firebase.storage();
-            storageRef.ref(`/RecipeImage/${this.props.localId}/${this.props.name[recpName]}`)
-            .getDownloadURL().then(url => this.setState({ recipeImagesUrl: url }))
-        };
+            for(let recpName in this.props.name){
+                const storageRef = Firebase.storage();
+                storageRef.ref(`/RecipeImage/${this.props.localId}/${this.props.name[recpName]}`)
+                .getDownloadURL().then(url => this.setState({ recipeImagesUrl: url }))
+            };
     }
 
     render() {
@@ -90,10 +90,9 @@ class UpdateMyRecipe extends Component {
                                 </div>
                             </div>
                             <div className="col-md-6 recp-instructions">
-                                <h4>Instructions</h4>
-                                <div className="recp-inst-list ">
-                                    {recipeInstructions}
-                                </div>
+                                <h4>Instructions</h4>                                <div className="recp-inst-list ">
+                                {recipeInstructions}
+                            </div>
                             </div>
                         </div>
                     </div>

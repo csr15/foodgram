@@ -1,0 +1,27 @@
+.header-user{
+        transition: all 0.3s;
+        padding: 10px;
+        margin: 30px auto;
+        .user-details{
+            padding: 15px;
+            box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            h2{
+                font-family: $roboto;
+                color: #000;
+                font-weight: 500;
+                text-transform: uppercase;
+                border-left: 15px solid $priCol;
+                padding-left: 5px;
+                margin-left: -15px;
+            }
+            p{
+                font-family: $roboto;
+            }
+            .total-recipes{
+                background: $priShade;
+                color: $priCol;
+                padding: 5px 8px;
+                border-radius: 50px;
+            }
+        }

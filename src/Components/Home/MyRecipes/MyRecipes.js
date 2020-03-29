@@ -8,6 +8,7 @@ import UpdateMyRecipe from './UpdateMyRecipe';
 import './MyRecipes.css';
 
 class MyRecipes extends Component {
+    is_mounted = false;
     constructor(){
         super()
         this.state = {
@@ -19,6 +20,7 @@ class MyRecipes extends Component {
     
     componentDidMount() {
         this.props.fetchRecipes(this.props.localId);
+        this.is_mounted = true;
     };
 
     static getDerivedStateFromProps(props, state){
@@ -39,7 +41,24 @@ class MyRecipes extends Component {
         };
     }
 
+    componentWillUnmount(){
+        this.is_mounted = false;
+    }
+
     render() {
+        let skeletonLayout = (
+            <div className="container skull-layout text-center">
+                <div className="row">
+                    <div className="col-md-4 my-auto">
+                        <Skeleton height={200} width={200} /> 
+                    </div>
+                    <div className="col-md-8">
+                        <Skeleton count={8}/>
+                    </div>
+                </div>
+            </div>
+        );
+        console.log(this.is_mounted);
         return (
             <div className="my-recipes-layout">
                 <div className="row">
@@ -53,18 +72,17 @@ class MyRecipes extends Component {
                                         desc={recp.description} 
                                         ing={recp.ingredients} 
                                         ins={recp.instructions} 
+                                        isMounted={this.is_mounted}
                                         recpImg={this.state.recipeImages}
                                     />
                                 )))
                                 :
                                 null
                         :
-                        <div className="row">
-                            <div className="col-md-5 skull-layout p-2 m-3">
-                                <h5><Skeleton width={100} height={50}/></h5>
-                                <h5><Skeleton width={100} height={50}/></h5>
-                                <h5><Skeleton width={100} height={50}/></h5>
-                            </div>
+                        <div className="container skull-layout text-center">
+                            {skeletonLayout}
+                            {skeletonLayout}
+                            {skeletonLayout}
                         </div>
                     }
                     <div className="container">

@@ -1,96 +1,24 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton'
 
-import './Home.css'
-import Firebase from '../Fire/base';
+import './Home.css';
+import RecipesFeed from './RecipesFeed/RecipesFeed';
+import { Aux } from '../../HOC/Auxilary/Auxilary';
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
-
-    state = {
-        data: [],
-        didImgRecieved: false
-    }
-
-    componentDidMount(){
-        this.props.updater();
-    }
-
-    componentDidUpdate(prevProps, prevState){
-        if(this.state.didImgRecieved=== false && this.props.updateValue){
-            const fetchedRecpData = [];
-            const fetchedRecpImg = [];
-            for(let key in this.props.myRecpData){
-                fetchedRecpData.push(this.props.myRecpData[key].recipeName);
-            }
-            fetchedRecpData.map(el => {
-                const strgRef = Firebase.storage();
-                const imgRef = strgRef.ref(`RecipeImage/${this.props.localId}/${el.recipeName}`);
-                return imgRef.getDownloadURL()
-                .then((url) => {
-                    fetchedRecpImg.push({
-                        [el.recipeName]: url
-                    });
-                    this.setState({data: fetchedRecpImg, didImgRecieved: true});
-                });
-            });
-        }
-    }
-
     render(){
         return(
-            <div className="container home-layout">
-                <div className="header-user">
-                    <div className="row">
-                        <div className="col-md-3 user-details">
-                            <h2>{this.props.userName}</h2>
-                            <p className="text-muted">Recipes Uploaded: <span className="total-recipes">{this.state.data.length}</span> </p>
-                        </div>
-                        <div className="col-md-9 list-short-recipes my-auto">
-                        {
-                            this.state.didImgRecieved ? 
-                                this.state.data.map((el, index) => {
-                                    return Object.keys(el).map(innerEl => (
-                                        <span className="recp-img-list"  key={index}>
-                                            <Link to="/my-recipes"><p className="my-auto"><span><img src={el[innerEl]} alt="Recipes..!" className="img-responsive my-auto"/>{innerEl}</span></p></Link>
-                                        </span> 
-                                    ))
-                                })
-                            : 
-                            <div className="row">
-                                <div className="col-md-5 skull-layout p-2 m-3">
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                    <h5><Skeleton width={100} height={50}/></h5>
-                                </div>
-                            </div>
-                        }
-                        <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Aux>
+                <RecipesFeed />
+            </Aux>
         );
     };
 };
 
 const mapStateToProps = state => {
-    return{
-        localId: state.auth.localId,
-        userName: state.auth.userName,  
-        myRecpData: state.myRecp.myRecpData,
-        updateValue: state.myRecp.updateValue
+    return{ 
+        myRecpData: state.myRecp.myRecpData
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return{
-        updater: () => dispatch({type: "UPDATER"})
-    }
-} 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

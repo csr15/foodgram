@@ -52,7 +52,12 @@ $marker: 'Permanent Marker', cursive;
         }
     }
 }
-.footer-copyright{
+.page-footer{
     font-family: $roboto;
     color: rgb(163, 163, 163);
+    background: rgb(246, 246, 246);
+    a{
+        color: rgba(0, 0, 0, 0.8);
+        margin-left: 10px;
+    }
 }

@@ -12,9 +12,13 @@ import { ProtectedRoute } from './Components/Auth/ProtectedRoute/ProtectedRoute'
 import * as actionTypes from './Store/index';
 import asyncComponents from './HOC/AsyncComponents/asyncComponents';
 
-const AsyncComponent = asyncComponents(() => {
+const MyRecipeAsync = asyncComponents(() => {
     return import('./Components/Home/MyRecipes/MyRecipes');
 });
+
+const UploadRecipeAsync = asyncComponents(() => {
+    return import('./Components/Home/RecipeUpload/RecipeUpload');
+})
 
 class App extends Component {
     componentDidMount() {
@@ -32,7 +36,8 @@ class App extends Component {
     
                     {/* allows only authenticated user to access */}
                     <ProtectedRoute path="/home" exact component={Home} />
-                    <ProtectedRoute path="/my-recipes" exact component={AsyncComponent} />
+                    <ProtectedRoute path="/my-recipes" exact component={MyRecipeAsync} />
+                    <Route path="/upload-recipes" exact component={UploadRecipeAsync} />
     
                     {/* Not Found page */}
                     <Route render={NotFound} />

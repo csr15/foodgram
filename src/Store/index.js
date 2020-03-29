@@ -7,3 +7,7 @@ export{
 export{
     fetchRecipes,
 } from './ActionCreator/MyRecipes';
+
+export{
+    uploadDatabase
+}from './ActionCreator/UploadRecipe'

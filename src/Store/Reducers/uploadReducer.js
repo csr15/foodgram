@@ -1,9 +1,16 @@
 const initialState = {
-    value: 15
+    didUploaded: false
 };
 
 const reducer = (state = initialState, action) => {
-    return state;
+    switch(action.type){
+        case "UPLOADED_SUCCESSFULLY":
+            return{
+                ...state,
+                didUploaded: true
+            }
+        default: return state
+    }
 };
 
 export default reducer;

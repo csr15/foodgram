@@ -88,7 +88,7 @@ class MyRecipes extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 m-5 mx-auto text-center">
-                                <Link to="/uploadRecipe"><button className="btn-add-more-recp">Add More Recipes</button></Link> 
+                                <Link to="/upload-recipes"><button className="btn-add-more-recp">Add More Recipes</button></Link> 
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ class Navigation extends Component {
                                     <Link className="nav-link" to="/"><i className="fas fa-user" style={{marginRight: '3px'}}></i>Logout</Link>
                                 </li>
                                 <li className="nav-item upload-nav">
-                                    <Link className="nav-link" to="/uploadRecipe"><i className="fas fa-upload" style={{marginRight: '3px'}}></i>Upload Recipe</Link>
+                                    <Link className="nav-link" to="/upload-recipes"><i className="fas fa-upload" style={{marginRight: '3px'}}></i>Upload Recipe</Link>
                                 </li>
                             </ul>
                             :

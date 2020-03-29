@@ -21,9 +21,9 @@ class MainLayout extends Component {
                         </div>
                     </div>
                 </div>
-                <footer class="page-footer font-small">
-                    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                        <a href="https://boxdevs.firebaseapp.com/">BOX-Devs</a>
+                <footer className="page-footer font-small">
+                    <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                        <Link to="https://boxdevs.firebaseapp.com/">BOX-Devs</Link>
                     </div>
                 </footer>
             </Aux>

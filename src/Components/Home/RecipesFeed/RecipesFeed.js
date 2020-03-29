@@ -87,7 +87,7 @@ class RecipesFeed extends React.Component {
                                 </div>
                             </div>
                         }
-                        <Link to="/uploadRecipe"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
+                        <Link to="/upload-recipes"><button className="btn-home-add-recp">Add More Recipe<i className="fas fa-chevron-right" style={{marginLeft: '3px'}}></i></button></Link>
                         </div>
                     </div>
                 </div>

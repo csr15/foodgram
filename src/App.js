@@ -18,7 +18,11 @@ const MyRecipeAsync = asyncComponents(() => {
 
 const UploadRecipeAsync = asyncComponents(() => {
     return import('./Components/Home/RecipeUpload/RecipeUpload');
-})
+});
+
+const SearchRecipeAsync = asyncComponents(() => {
+    return import('./Components/Home/SearchRecipe/SearchRecipe');
+});
 
 class App extends Component {
     componentDidMount() {
@@ -38,6 +42,7 @@ class App extends Component {
                     <ProtectedRoute path="/home" exact component={Home} />
                     <ProtectedRoute path="/my-recipes" exact component={MyRecipeAsync} />
                     <Route path="/upload-recipes" exact component={UploadRecipeAsync} />
+                    <Route path="/search-recipes" exact component={SearchRecipeAsync} />
     
                     {/* Not Found page */}
                     <Route render={NotFound} />

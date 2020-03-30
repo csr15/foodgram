@@ -1,0 +1,86 @@
+//------Color
+$priCol: #3c56e8;
+$secCol: #fcc135;
+$priShade: rgba(60, 86, 232, 0.2);
+
+//------Font
+$roboto: 'Roboto', sans-serif;
+$nuni: 'Nunito' , sans-serif;
+
+.search{
+    margin: 0px auto 20px auto;
+    padding: 10px;
+
+    // search header
+    .search-header{
+        margin: 20px auto 0px auto;
+        min-height: 100px;
+        transition: all 0.3s;
+            h1{
+                color: #000;
+                font-family: "Permanent Marker", sans-serif;
+                font-size: 50px;
+            }
+    }
+
+    //Search form
+    .search-form{
+        form{
+            display: flex;
+            width: 70%;
+            margin: 0px auto 0px auto;
+            input{
+                flex: 1;
+                padding: 15px 30px;
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+                border: 2px solid $secCol;
+                &:hover{
+                    background: rgb(246, 246, 246);
+                    transition: all 0.3s;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            .btn-search{
+                border: 2px solid $secCol;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px; 
+                width: 20%; 
+                background: $secCol;
+                color: #fff;
+                font-family: $roboto;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 500;
+                transition: all 0.3s;
+                i{
+                    margin-right: 5px;
+                }
+                &:hover{
+                    background: darken($color: $secCol, $amount: 8%);
+                    transition: all 0.3s;
+                    i{
+                        margin-right: 10px;
+                        transition: all 0.3s;
+                    }
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+.start-search-image{
+    img{
+        width: 300px;
+    }
+    h3{
+        color: rgba(0, 0, 0, 0.6);
+        font-family: $roboto;
+    }
+}

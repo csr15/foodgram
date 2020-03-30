@@ -26,6 +26,9 @@ class Navigation extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/my-recipes"><i className="fas fa-stream" style={{marginRight: '3px'}}></i>My Recipes</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/search-recipes"><i className="fas fa-search" style={{marginRight: '3px'}}></i>Search</Link>
+                                </li>
                                 <li className="nav-item" onClick={this.props.onLogout}>
                                     <Link className="nav-link" to="/"><i className="fas fa-user" style={{marginRight: '3px'}}></i>Logout</Link>
                                 </li>
